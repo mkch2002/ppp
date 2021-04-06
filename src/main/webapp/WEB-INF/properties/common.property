@@ -1,0 +1,31 @@
+# LOCAL
+common.base_upload_path=C:\
+
+#### Oracle DB Info #### 
+#db.driver=oracle.jdbc.driver.OracleDriver 
+#db.url=jdbc:oracle:thin:@localhost:1521:orcl 
+#db.username=mkch 
+#db.password=testtest123!! 
+
+#### MARIADB DB Info #### 
+db.driver=org.mariadb.jdbc.Driver
+db.url=jdbc:mariadb://mkch.cafe24.com:3306/mkch
+db.username=mkch
+db.password=testtest123!!
+
+
+#### File Path #### 
+# PRD, STAGE, DEV
+#common.base_upload_path=/mkch/upload
+
+#### Oracle DB Info #### 
+#db.driver=oracle.jdbc.driver.OracleDriver 
+#db.url=jdbc:oracle:thin:@localhost:1521:orcl 
+#db.username=ktko 
+#db.password=ktko1234 
+
+#### MARIADB Info #### 
+#db.driver=org.mariadb.jdbc.Driver
+#db.url=jdbc:mariadb://localhost:3306/mkch
+#db.username=ktko 
+#db.password=ktko1234 

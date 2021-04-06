@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판 관리자 모드</title>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+	<table border="1px" id="member_table">
+		<tr>
+			<th>NO</th>
+			<th>ID</th>
+			<th>이름</th>
+			<th>전화번호</th>
+			<th>이메일</th>
+			<th>ADDRESS</th>
+			<th>GENDER</th>
+			<th>비고</th>
+		</tr>
+	</table>
+	<script>
+		// 		$(document).ready(function() {
+		// 			$(document).on("click", ".btn_delete", function() {
+		// 				var tmp_name = $(this).closest("tr").find("td").eq(2).find("input").eq(0).val(); 
+		// 				$(this).closest("tr").attr("data-name", "dkgk"); attr 앞에꺼에 뒤에꺼 대입
+		// 				alert($(this).closest("tr").attr('data-id')); alert띄어주는거 뒤에꺼
+		// 			});
+		// 		});
+
+		$(document).ready(function() {
+			init();
+
+			$(document).on("click", ".btn_save", function() {
+				alert($(this).attr("data-id"));
+			});
+		}); // 버튼 눌렀을때 속성값 나오게 하기
+
+		$(document).ready(function() {
+			$(document).on("click", ".btn_edit", function() {
+				var params = {
+					sId : $(this).attr("data-id"),
+					sName : $(this).attr("data-name"),
+					sPhone : $(this).attr("data-phone"),
+				//sUrl : '/sp04/sub04/editJoin.do'
+				}
+
+				fn_edit(params);
+			});
+		});
+
+		function fn_edit(params) {
+			$.ajax({
+				url : params.sUrl,
+				data : params,
+				method : 'post',
+				dataType : 'json',
+				success : function(response) {
+
+					if (response.result > 0) {
+						alert("수정되었습니다.");
+						location.href = "/sp04/sub04/sub04_1.do";
+					} else {
+						alert("수정되지 않았습니다.")
+					}
+
+				},
+				error : function(xhr, status, error) {
+					alert("실패");
+				}
+			});
+		}
+
+		// 		$(document).ready(function() {
+		// 			$(document).on("click", ".btn_delete", function() {
+		// 				alert($(this).closest("tr").find("td").eq(0).find("input").eq(0).attr("data-seq"));
+		// 			});
+		// 		}); // 버튼 누르면 seq값이 나옴
+
+		$(document).ready(
+				function() {
+					$(document).on(
+							"click",
+							".c_gender",
+							function() {
+								alert($(this).closest("tr").find("td").eq(0)
+										.find("input").eq(0).attr("data-seq"));
+							});
+				});
+
+		// 		$(document).ready(function() {
+		// 			$(document).on("click", ".btn_save", function() {
+		// 				var tmp_num = $(this).closest("tr").find("td").eq(0).text();
+		// 				var tmp_id = $(this).closest("tr").find("td").eq(1).find("input").eq(0).val();
+		// 				var tmp_name = $(this).closest("tr").find("td").eq(2).find("input").eq(0).val();
+		// 				var tmp_phone = $(this).closest("tr").find("td").eq(3).find("input").eq(0).val();
+		// 				var tmp_email = $(this).closest("tr").find("td").eq(4).find("input").eq(0).val();
+		// 				var tmp_address = $(this).closest("tr").find("td").eq(5).find("input").eq(0).val();
+		// 				var tmp_gender = $(this).closest("tr").find("td").eq(6).find("input").eq(0).val();
+
+		// 				$(this).closest("tr").find("td").eq(0).text(tmp_num+tmp_id+tmp_name+tmp_phone+tmp_email+tmp_address+tmp_gender);
+		// 			});
+		// 		}); // 묶어서 나오게 하기
+
+		// 		$(document).ready(function() {
+		// 			$(document).on("click", ".btn_delete", function() {
+		// 				var tmp_name = $(this).closest("tr").find("td").eq(2).find("input").eq(0).val();
+		// 				$(this).closest("tr").remove();
+		// 			});
+		// 		}); // 제거하기
+
+		$(document).ready(function() {
+			$(document).on("change", ".c_button", function() {
+				if ($(this).find("option:selected").val() == "01") {
+					alert($(this).closest("tr").find("td").eq(1).text())
+				} else {
+					alert($(this).closest("tr").find("td").eq(2).text())
+				}
+			});
+		});
+
+		function init() {
+			var tmp_str = "";
+			for (var i = 1; i < 11; i++) {
+				tmp_str += "<tr><td>"
+						+ i
+						+ "</td><td>"
+						+ 'wdqd'
+						+ i
+						+ "</td><td>"
+						+ '민진홍'
+						+ i
+						+ "</td><td>"
+						+ '010-0000-000'
+						+ i
+						+ "</td><td>"
+						+ 'wdsa7@naver.com'
+						+ "</td><td>"
+						+ 'address'
+						+ i
+						+ "</td><td>"
+						+ 'male'
+						+ i
+						+ "</td><td><input type='button' value='save' class='btn_save' data-id='id'><input type='button' value='delete' class='btn_edit'><select class='c_button'>"
+						+ "<option value='01'>객관식</option><option value='02'>주관식</option></select></td></tr>";
+			}
+			$("#member_table").append(tmp_str);
+		}
+	</script>
+</body>
+</html>

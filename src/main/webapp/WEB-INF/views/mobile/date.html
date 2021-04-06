@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>시간(캘린더)</title>
+ <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script src="jquery.mask.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="cmm.js"></script> -->
+<script src="calendar_beans_v2.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="schedule_mng.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//alert(fn_time());
+	</script>
+</head>
+<body>
+	<input id="start_dt" type="text" style="wdith:150px">~<input id="end_dt" type="text" style="wdith:150px"> <input type="button" value ="검색" onclick="fn_date()"><br/><br/><br/>
+	<div style="margin-top:30px;">
+		<input type="text" id="schedule_mng" style="display:none;">
+	</div>
+	<script type="text/javascript">						
+			/*
+				id		:텍스트박스Id   // *필수
+				type	:day,mon	    // 둘중 하나입력		,기본값> 일달력 출력
+				minYear :xxxx			// 최소년도 4자리 입력	,기본값> 2000
+				maxYear :xxxx  			// 최대년도 4자리 입력	,기본값> 현재년도
+				splitKey:'-','/'		// 달력 구분값        	,기본값> '-'
+				todayYN :'y','n'		// today 표시         	,기본값> 안보여주기
+				iconYN  :'y','n'		// 달력그림표시여부	  	,기본값> 안보여주기
+				iconUrl :fullUrl 혹은 해당위치 상대경로 url'	,기본값> jquery 사이트 달력
+			 */
+			initCal({id:"start_dt",type:"day",today:"y",icon:"n"});			
+			initCal({id:"end_dt",type:"day",today:"y",icon:"y"});
+			initCal({id:"schedule_mng",type:"day",today:"y",icon:"y"});
+
+	</script>
+	<script>
+	$(document).ready(function(){
+		
+
+		$(document).on("click", "#Calschedule_mngContent > div" , function(){
+			
+			
+			$("#Calschedule_mngContent > div").css("background-color","");
+			$(this).css("background-color","green");
+		});
+		
+		
+	});
+	
+		function fn_date(){
+			if(document.getElementById("start_dt").value == ""){
+				alert("시작 날짜를 지정해 주세요.");
+				document.getElementById("start_dt").focus()
+				return;
+			}
+			if(document.getElementById("end_dt").value == ""){
+				alert("종료 날짜를 지정해 주세요.");
+				document.getElementById("end_dt").focus()
+				return;
+			}
+			if(document.getElementById("start_dt").value > document.getElementById("end_dt").value){
+				alert("시작 날짜가 종료날짜 보다 더 앞 이어야 합니다");
+				document.getElementById("start_dt").focus();
+				return;
+			}
+			alert(document.getElementById("start_dt").value +"~"+document.getElementById("end_dt").value +"성공")
+		}
+		
+		$("#schedule_mng").click();
+		
+	</script>
+</body>
+</html>

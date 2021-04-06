@@ -1,0 +1,293 @@
+@charset "utf-8";
+
+/* main container------------------------------------------------------------------------------*/
+
+#container {width: 100%;}
+/*========================================
+====== visual_main
+=========================================*/
+.visual {width: 100%; height: 45notice_tit0px; position: relative;}
+
+/*visual [bx슬라이더]*/
+.visual .bxslider {position:absolute; z-index: 1}
+.visual .bxslider .visual_main01 {width: 100%; height: 366px; background: url(../images/main/main_vs_img01.png) center center no-repeat;}
+.visual .bxslider .visual_main02 {width: 100%; height: 366px; background: url(../images/main/main_vs_img02.png) center center no-repeat;}
+.visual .bxslider .visual_main03 {width: 100%; height: 366px; background: url(../images/main/main_vs_img03.png) center center no-repeat;}
+.visual .bxslider .visual_main04 {width: 100%; height: 366px; background: url(../images/main/main_vs_img04.png) center center no-repeat;}
+.visual .bxslider .visual_main05 {width: 100%; height: 366px; background: url(../images/main/main_vs_img05.png) center center no-repeat;}
+.visual .bxslider .visual_main06 {width: 100%; height: 366px; background: url(../images/main/main_vs_img06.png) center center no-repeat;}
+
+
+
+/*-----------------------
+visual > 삼건회의가 간다
+------------------------*/
+.visual .h470 {height: 450px;}
+.visual .inner {position:relative; margin-top: -348px; height: 350px;}
+.visual .inner .go_visit {position:absolute; z-index: 2; top:0px; right:0; width: 360px; height: 330px; background-color: #5187d2;
+ padding: 18px 48px;}
+.visual .inner .go_visit .group_wrap {margin-top: 12px; height: 230px; width: 260px; overflow: hidden;}
+.visual .inner .go_visit .txt_group a p {margin-top: 4px; line-height: 20px; font-size: 14px; color: #fff;}
+.colorY {color: #fff8d2;}
+/*
+.colorG {color: #d9ffd2;}
+.colorB {color: #cbf7ff;}
+.colorR {color: #ffcbdf;}
+.colorP {color: #e9cbff;}
+*/
+
+/*버튼-------------*/
+/*버튼_신청하기*/
+.btn_go_apply {position: absolute; bottom: 34px; left: 50px; width: 260px; line-height: 30px; background-color: #4478c0; color: #fff; text-align: center; border: 1px solid #fff; font-size: 14px; color: #fff; font-weight: 400;}
+.btn_go_apply:hover {background-color: #fff;  color: #4478c0;}
+
+/*버튼_더보기*/ /*190305 .btn_more03 버튼전체*/
+.btn_more03 {font-size: 14px; width: 52px; line-height: 30px; border: 1px solid #ddd; text-align: center; font-size: 12px; border-radius: 40px; position: absolute; top: 26px; right: 54px; color: #fff; background-color: #1c529d; border: none !important;}
+.btn_more03:hover {background-color: #fff !important; color: #4478c0 !important;}
+
+.btn_GoArrow .goPrev {position: absolute; top: 150px; left: 0;}
+.btn_GoArrow .goNext {position: absolute; top: 150px; right: 0;}
+
+
+
+
+
+/*------------------------
+visual > News Room
+------------------------*/
+.visual .inner .newsRoom {width: 740px; height: 90px; padding: 20px 0 0 50px; position:absolute; bottom: 18px; left:0; z-index: 2; background-color: #fff; overflow: hidden; border-radius: 10px;}/*190425 옆 한줄수정*/
+.visual .inner .newsRoom h2 {float: left; padding-top: 8px;}/*190425 옆 한줄수정*/
+.visual .inner .newsRoom ul {float: left; margin-left: 40px; border-left: 1px solid #ddd; padding-left: 12px; width: 536px; height: 50px;}/*190425 옆 한줄수정*/
+.visual .inner .newsRoom ul li {overflow: hidden;}
+.visual .inner .newsRoom ul li a {font-size: 15px; float: left; font-size: 15px; width: 450px;  height: 26px; overflow: hidden; white-space: nowrap;text-overflow: ellipsis;}/*190425 옆 한줄수정*/
+.visual .inner .newsRoom ul li a:hover {text-decoration: underline;}
+.visual .inner .newsRoom ul li span {float: right; font-size: 14px;}
+
+/*버튼_더보기-------------*/
+/*
+.btn_more_same {font-size: 14px; width: 54px; line-height: 24px; border: 1px solid #ddd; text-align: center; font-size: 12px; border-radius: 40px; position: absolute;}
+.btn_more_same:hover {border-color: #888; color: #000;} 
+.btn_more01 {top: 45px; left: 50px;}
+*/
+
+
+
+/*========================================
+====== 알림
+=========================================*/
+
+/*.notice_area {width: 100%; margin-top: 18px;}
+.notice_area .tit {width: 70px; background-color: #213253; float: left; border-radius: 80px; text-align: center; margin-right: 20px; margin-top: -2px; padding-bottom: 2px;}
+.notice_area .tit h2 {color: #fff; font-size: 16px; line-height: 28px;}
+.notice_area .box {width: 1005px; overflow: hidden;}
+.notice_area .box a {float: left;}
+.notice_area .notice_box a:hover {text-decoration: underline;}
+.no_date {font-size: 13px; float: right; padding-top: 4px;}*/
+
+
+/*========================================
+====== 자유게시판 190806 추가
+=========================================*/
+.brd_free {width: 100%; margin-top: 18px;}
+.brd_free h2 {float: left; width: 9%; font-size: 20px; text-align: center; border-radius: 20px; line-height: 27px; letter-spacing: -1px; color: #000; padding-bottom: 3px; font-weight: 600;}
+.brd_free .brdtxt {position: relative;float: left; width: 90%; margin-top: 5px;}
+.brd_free .brdtxt .col {position: relative; width: 46%;}
+.brd_free .brdtxt .col a { margin-left: 10px; font-size: 14px; width: 80%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; letter-spacing: -1px; transition: all 0.3s;}/*공통*/
+.brd_free .brdtxt .col a:hover {background-color: #f2f2f2;}
+.brd_free .brdtxt .col a:after {content: ''; display: inline-block; background-color: #999; width: 5px; height: 5px; position: absolute; top: 8px; left:0px; border-radius: 50%;}
+.brd_free .brdtxt .left {display: inline-block; margin: 0 50px 0 20px;}
+.brd_free .brdtxt .left:after {content: ''; display: inline-block;  background-color: #dbdbdb; width: 1px; height: 14px; position: absolute; top: 5px; left: 490px;}
+.brd_free .brdtxt .right {display: inline-block;}
+.brd_free .brdtxt .date {font-size: 13px; position: absolute; top: 2px; right: 0;}
+
+
+
+
+
+/*공통부분---------------------------------------------------------------*/
+/*h2 타이틀 공통*/ 
+.m_tit, .m_tit02, .m_tit03  {font-size: 20px; font-weight: 600; color: #444;}
+.m_tit {display: inline-block; vertical-align: middle;}
+.m_tit02 {vertical-align: middle;}
+.m_tit02 a {color: #444; font-size: 20px; font-weight: 600;}
+.m_tit02 a {border-bottom: 1px solid #666;}
+.m_tit03 {text-align: left;}
+/*.m_tit03 span {border-bottom: 1px solid #ddd; width: 126px; display: inline-block; margin-bottom: 5px;}*//*190626 라인삭제*/
+
+/*버튼 호버시 공통*/
+.btn_calendal:hover,.btn_e_apply:hover,.btn_vote:hover,.btn_result:hover,.btn_secret:hover,.btn_HR_link:hover {background-color: #fff; color: #000;}
+
+/*========================================
+====== col_02
+=========================================*/
+.col_02 {margin-top: 20px;}/*공통*/ /*190625 옆에 한줄 수정*/
+.col_02 .schedule,.col_02 .event,.col_02 .poll {width: 360px; height: 418px;float: left; text-align: center; padding: 30px 30px; }/*공통*/
+.col_02 .schedule,.col_02 .event {margin-right: 20px;}/*공통*/
+
+/*------------------------
+col_02 > 삼건협의회 일정
+------------------------*/
+.col_02 .schedule {background-color: #c1e0ee;}
+.col_02 .schedule .category dl {display: inline-block; margin-right: 14px; margin-top: 14px;}
+.col_02 .schedule .category dl dt {width: 10px; height: 10px; display: inline-block; margin-bottom: -1px; margin-right: -3px;}
+.col_02 .schedule .category dl:nth-child(1) dt {background: #01a584;}
+.col_02 .schedule .category dl:nth-child(2) dt {background: #ec6565;}
+.col_02 .schedule .category dl:nth-child(3) dt { background: #8565ec;}
+.col_02 .schedule .category dl dd {font-size: 12px;display: inline-block; letter-spacing: -1px;}
+/*20190408 아래 marging-top변경*/
+.col_02 .schedule .calendal {background-color: #fff; border-radius: 6px; width: 100%; margin: 0 auto; padding: 10px 30px; font-size: 13px; position: relative; margin-top:10px;}
+.col_02 .schedule .calendal strong {border-bottom: 1px dashed #999; display: block; font-size: 16px; padding-bottom: 5px;  font-weight: bold; color: #4478c0;}
+.col_02 .schedule .calendal table {margin-top: 10px;}
+.col_02 .schedule .calendal table tr {border: 0px solid #000; }
+.col_02 .schedule .calendal table th {font-size: 14px;}
+.col_02 .schedule .calendal table td {padding: 2px;}
+.col_02 .schedule .calendal .calendal_prev {position: absolute; top: 16px; left: 28px; padding: 0 5px;}
+.col_02 .schedule .calendal .calendal_next {position: absolute; top: 16px; right: 28px; padding: 0 5px;}
+.col_02 .schedule .sch_txt {text-align: left; font-size: 13px; margin-top: 14px;}
+.col_02 .schedule .sch_txt ul li a {color: #000;  height: 18px; width: 290px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.col_02 .schedule .sch_txt .sch_date {font-weight: bold; margin-right: 8px; display: inline-block; font-size: 12px;}
+/*.mark_bg {background-color: #c1e0ff;}*//*일정있는 날 달력 표시*/
+.mark  span {border-bottom: 3px solid #ec6565; display: block;}
+
+/*------------------------
+col_02 > 리조트/휴양소/행사
+------------------------*/
+/*190408 아래 한줄 변경*/
+.col_02 .event {background: #e3effc url(../images/main/col_02_event.png) 0 0 no-repeat;}
+.btn_e_apply {margin-top: 300px; width: 160px; line-height: 30px; background-color: #2a9696; color: #fff;  font-size: 14px;}/*버튼_신청하기*/
+
+
+
+/*------------------------
+col_02 > poll
+------------------------*/  /*190408 아래전체*/
+.col_02 .poll {background: #ebdacb;position: relative; overflow: hidden;}
+.col_02 .poll p {color: #a76363;}/*진행중*/
+.col_02 .poll p .sub_txt {font-size: 14px; display: inline-block; margin: 12px 0 12px 0; padding: 0px 14px 4px 14px; background-color: #dd8c68;  color: #fff; border-radius: 18px; border: 1px solid #a76363; font-weight: 600;}/*진행중*/
+.col_02 .poll .poll_txt {background-color: #fff; border-radius: 6px; width: 100%;   min-height: 200px; }
+.col_02 .poll .poll_off img {position: absolute; top: 106px; left: 30px;}
+.col_02 .poll .sm_txt {color: #550016; margin-bottom: 12px; font-weight: 600; font-size: 14px; background-color: #f4e3e3; border-radius: 10px; padding: 0px 12px 2px 12px; display: inline-block;}/*날찌*/
+.col_02 .poll .poll_txt {padding: 20px 20px 12px 30px;}
+.col_02 .poll .poll_txt .period {font-size: 13px; color: #883a4f; text-align: left; margin-bottom: 12px; font-weight: bold;}
+.col_02 .poll .poll_txt .question {text-align: left; font-size: 14px;  border-bottom: 1px solid #b79898; padding-bottom: 10px; font-weight: bold; color: #444; max-height: 59px; overflow: hidden;}/*질문*/
+.col_02 .poll .poll_txt ul {text-align: left; margin-top: 10px;}
+.col_02 .poll .poll_txt ul.bullet li:before {display:inline-block;content:'';width:2px;height:2px;margin-right:7px;vertical-align:middle; background-color:#333;}/*블릿*/
+.col_02 .poll .poll_txt ul li {font-size: 14px; margin-bottom: 1px;}
+.col_02 .poll .poll_txt ul li input {margin-right: 5px;}
+.col_02 .poll .poll_txt ul li label { vertical-align: middle; width: 90%; height: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+/*설문이 없을 때 + 설문 답변이 2개일때 + 4개일 때 보여지는 컨트롤*//*190408 아래5줄*/
+.display00 {display: none;}/*로딩*/
+.display01 {display: none;}/*설문기간이 아닐 때*/
+.display02 {display: block; max-height: 252px;}/*선택 5개*/
+.display02_1 {display: none; max-height: 252px;}/*비활성화 블릿*/
+.display03 {display: none; max-height: 252px;}/*선택 2개*/
+
+/*버튼 좋아요+글쎄요*/
+.btn_area01 a {font-size: 18px; vertical-align: middle; margin-top: 30px;}/*공통*/
+.btn_good img,.btn_bad img {vertical-align: middle; margin-right: 2px;}/*공통*/
+.btn_good:hover,.btn_bad:hover {text-decoration: underline;}/*공통*/
+.btn_good {color: #fe2a00; margin-right: 20px;}/*버튼_좋아요*/
+.btn_bad {color: #005ede;}/*버튼_글쎄요*/
+
+/*버튼 투표하기+결과보기*/
+.btn_area02 {position: absolute; bottom: 30px; left: 65px;}/*190408 옆에 한줄 수정 bottom: 30px;*/
+.btn_area02 a {width: 110px; line-height: 30px; font-size: 14px; color: #fff;display: inline-block;}
+.btn_vote {background-color: #4478c0;}
+.btn_result {background-color: #883a4f;}/*결과보기*/
+
+/*결과보기 버튼 클릭시 나옴*/
+.view_result {background-color: #fff; width: 340px; height: 400px; position: absolute; top:8px; left: 10px; padding: 20px 50px; text-align: left; display: none;}
+.view_result .total_num {margin-top: 8px; font-weight: 600; letter-spacing: -1px; border-bottom: 1px dotted #000; padding-bottom: 6px;}/*전체 참가자수*/
+.view_result .total_num span {padding-left: 8px; color: #883a4f; font-weight: 600; font-size: 20px;}
+.view_result .total_num i {font-weight: normal;}
+.view_result ul {margin-top: 34px;}
+.view_result ul li {margin-bottom: 10px; font-size: 13px; }
+.view_result em { display: inline-block;}
+
+
+.view_result ul li .m_graph {width: 100%; height: 3px; background-color: #ddd; margin-top: 6px;}
+.view_result ul li .m_graph span {display: inline-block; height: 3px; background-color: #e34335; text-indent: -2600px;}
+.view_result ul li:nth-child(1) .m_graph span {width: 40%;}
+.view_result ul li:nth-child(2) .m_graph span {width: 0%;}
+.view_result ul li:nth-child(3) .m_graph span {width: 50%;}
+.view_result ul li:nth-child(4) .m_graph span {width: 10%;}
+
+.view_result ul li .count {text-align: right;}
+.view_result ul li .count span {font-size: 15px; font-weight: 600;}
+
+.result_view_close {position: absolute; top: 23px; right: 30px;} /*X 버튼*/
+
+
+
+
+/*========================================
+====== col_03
+=========================================*/
+.col_03 {margin-top: 20px; overflow: hidden;}/*공통*/
+.problem,.hrforU,.improve {float: left; height: 240px; text-align: center;}/*공통*/
+.problem,.hrforU {width: 276px; margin-right: 20px; padding: 24px 46px;}/*공통*/
+
+
+/*------------------------
+col_03 > 고충처리
+------------------------*/
+.col_03 .problem {background-color: #e2ecfb; border: 1px solid #aec9ce;}
+.col_03 .problem > h2 {color: #000;}
+.col_03 .problem .pro_txt {margin-top: 18px; color: #000; font-size: 15px;}
+.col_03 .problem strong {font-weight: 600; color: #1b6fb7;}
+
+
+/*------------------------
+col_03 > 법률상담
+------------------------*/
+.col_03 .hrforU {background-color: #fcfbf9; border: 1px solid #d4b5ae;}
+.col_03 .hrforU .hrfor_img {background: url(../images/main/law.png) 0 0 no-repeat; width: 125px; height: 83px; display: inline-block; margin-top: 20px;}
+
+
+/*버튼*/ 
+.btn_col03 {font-size: 14px; width: 140px; line-height: 28px; text-align: center; font-weight: 400; font-size: 14px; border: 1px solid; color: #fff}
+.btn_col03:hover {background: #fff; color: #000;}/*공통*/
+.btn_secret {background-color: #3a64ac; margin-top: 22px;}/*버튼 [고충처리]*/
+.btn_law {margin-top: 20px; background-color: #ad7550;}/*버튼_링크 [벌률상담]*/
+
+
+
+
+/*------------------------
+col_03 >there is something
+------------------------*//*190626 변경*/
+.improve {width: 47%; position: relative; padding: 24px 40px 24px 50px;}
+.improve h2:after {content: ''; display: inline-block; width: 6px; height: 16px; margin-left: 5px;background: url(../images/main/thereIs_txt.gif);}
+.improve ul {margin-top: 20px; border-top: 1px solid #000;padding-top: 18px;}
+.improve ul li  {padding: 2px 0; text-align: left;}
+.improve ul li a {font-size: 15px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width: 94%;}
+.improve ul li a:hover {font-weight: bold;}
+.improve ul li a:before {content: ''; display: inline-block; width: 3px; height: 3px; background-color: #444; vertical-align: 4px; margin-right: 4px;}
+
+.btn_moreBrd {position: absolute; top: 20px; right: 40px; font-size: 14px; border: 1px solid #999; padding: 0px 10px; line-height: 30px; border-radius: 20px; font-size: 14px; font-weight: bold;}
+.btn_moreBrd:hover {background-color: #f4f4f4;}
+
+
+
+
+
+
+
+
+
+
+
+
+/*========================================
+====== link_area
+=========================================*/
+.link_area {width: 100%; background-color: #ddd; margin-top: 20px; padding: 20px 0; height: 186px;}
+.link_area h3 {font-size: 16px; color: #000;}
+.link_area h3 span {vertical-align: middle;}
+.link_area h3::after {content: ''; background: url(../images/main/icon_link_area.png) 0 0 no-repeat;width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-left: 6px;}
+.link_area .link_area_img {font-size: 0; margin-top: 10px;}
+
+
+
+

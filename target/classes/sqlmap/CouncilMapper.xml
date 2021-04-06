@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. -->
+<mapper namespace="kr.co.sp04.dao.CouncilListDao"> 
+   <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+   <select id="listCouncil"  parameterType="Map" resultType="java.util.HashMap"> 
+     
+WITH SEARCHLIST  AS (
+	select 
+		ROW_NUMBER() OVER( ORDER BY A.seq DESC  ) AS NO, 
+		A.seq, 
+		A.title, 
+		A.regdate, 
+		A.good, 
+		A.bad, 
+		A.status, 
+		A.cnt, 
+		A.Pseq, 
+		A.step 
+	from 
+		Council A
+	where 1=1
+	<if test= "sTitle !=null  ">
+   	  	and A.title like '%' | |#{sTitle} || '%'
+	</if>
+	order by A.pseq desc, A.seq asc
+) 
+SELECT 
+	* 
+FROM SEARCHLIST 
+WHERE 1=1 
+AND SEARCHLIST.NO BETWEEN TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize}) - TO_NUMBER(#{sPageSize}) + 1 AND TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize})
+
+</select>
+
+<insert id="writeCouncil"  parameterType="Map" >
+insert into Council
+	(
+	seq,
+	title,
+	content,
+	etc,
+	cnt,
+	regid,
+	regdate,
+	modid,
+	moddate
+	)
+ values
+ 	((select nvl(max(seq),0)+1 from council ),
+ 	#{sTitle},
+ 	#{sContent},
+ 	#{sEtc},
+ 	0,
+ 	'id11',
+ 	sysdate,
+ 	'id11',
+ 	sysdate)
+</insert>
+
+<select id="viewCouncil"  parameterType="Map" resultType="java.util.HashMap">
+select seq,title,content,status,cnt,writer,regdate from Council where seq = #{sSeq}
+</select>
+
+<delete id="deleteCouncil"  parameterType="Map">
+delete from Council where seq = #{sSeq}
+</delete>
+
+<update id="updateCnt" parameterType="Map">
+update Council set 
+   	cnt = (select cnt+1 from Council where seq = #{sSeq}) 
+where seq = #{sSeq}
+</update>		  
+		  
+<update id="editCouncil" parameterType="Map">
+update Council set Title = #{sTitle}, Content = #{sContent} ,regid = 'modid', regdate = sysdate where seq = #{sSeq}
+</update>
+
+<select id="selectTotal" parameterType="Map" resultType="int">
+select 
+	 count(*) totCnt 
+from
+	Council A 
+where 1=1 
+</select>
+</mapper>

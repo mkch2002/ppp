@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.sp04.trydao.TryDao">
+
+	<select id="listTry" parameterType="Map" resultType="java.util.HashMap">
+		select
+			1 NO,
+			A.seq,
+			A.title,
+			A.regdate,
+			A.bad,
+			A.good,
+			A.cnt,
+			A.Pseq,
+			A.step,
+			A.mem_id,
+			A.grade,
+			A.code,
+			(select text from tb_cmm B where B.code = A.grade and B.lang_cd = 'ko') grade_nm,
+			A.div,
+			A.chk
+		from
+			try A
+		where 1=1
+<!-- 			<if test="sTitle !=null"> -->
+<!-- 				and A.title like '%' || #{sTitle} || '%' -->
+<!-- 			</if> -->
+<!-- 			<if test="sMem_id !=null"> -->
+<!-- 				and A.mem_id = #{sMem_id} -->
+<!-- 			</if> -->
+	<!-- 		<if test="sCode !=null"> -->
+	<!-- 			and A.code = #{sCode} -->
+	<!-- 		</if> -->
+<!-- 			<if test="sDiv !=null"> -->
+<!-- 				and A.div = #{sDiv} -->
+<!-- 			</if> -->
+			
+	</select>
+
+	<select id="viewTry" parameterType="Map"
+		resultType="java.util.HashMap">
+		select seq,title,content,good,bad,cnt,nvl(etc,' ') etc from
+		try where seq =
+		#{sSeq}
+	</select>
+
+	<delete id="deleteTry" parameterType="Map">
+		delete from try where seq =
+		#{sSeq}
+	</delete>
+
+	<select id="selectTotal" parameterType="Map" resultType="int">
+		select
+		count(*) totCnt
+		from
+		try A
+		where 1=1
+		<if test="sTitle !=null">
+			and A.title like '%' ||#{sTitle} || '%'
+		</if>
+		<if test="sMem_id !=null">
+			and A.mem_id = #{sMem_id}
+		</if>
+		<if test="sDiv !=null">
+			and A.div = #{sDiv}
+		</if>
+	</select>
+
+	<insert id="writeTry" parameterType="Map">
+		insert into try
+		(
+		seq,
+		title,
+		content,
+		etc,
+		cnt,
+		regid,
+		regdate,
+		modid,
+		moddate,
+		mem_id,
+		grade,
+		div,
+		code
+		)
+		values
+		(
+		(select
+		nvl(max(seq),0)+1 from try ),
+		#{sTitle},
+		#{sContent},
+		#{sEtc},
+		0,
+		'id11',
+		sysdate,
+		'id11',
+		sysdate,
+		#{sMem_id},
+		#{sGrade},
+		#{sDiv},
+		#{sCode}
+		)
+	</insert>
+
+	<update id="updateCnt" parameterType="Map">
+		update try set
+		cnt =
+		(select
+		cnt+1 from try where seq = #{sSeq})
+		where seq = #{sSeq}
+	</update>
+
+	<update id="editTry" parameterType="Map">
+		update
+			Try
+		set
+			Title = #{sTitle},
+			Good = #{sGood},
+			Bad = #{sBad},
+			Cnt = #{sView},
+			Div = #{sDiv},
+			code = #{sCode},
+			grade = #{sGrade},
+			chk = #{sChk},
+			regid =	'modid',
+			regdate = sysdate
+		where 
+			seq = #{sSeq}
+		
+	</update>
+</mapper>

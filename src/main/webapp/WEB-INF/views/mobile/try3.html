@@ -1,0 +1,172 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="삼건협의회">
+<meta name="keywords" content="삼건협의회 리뉴얼 2019">
+<meta name="description" content="삼성물산,삼건협의회,직원이 먼저다">
+<title>삼건협의회</title>
+
+<!--css style-->
+<link rel="stylesheet" type="text/css"
+	href="/sp04/resources/css/common.css">
+<link rel="stylesheet" type="text/css"
+	href="/sp04/resources/css/sub03.css">
+<!--script-->
+<script type="text/javascript"
+	src="/sp04/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/sp04/resources/js/paging.js"></script>
+<script>
+	$(function() {
+		/*nav gnb*/
+		$("nav").hover(function() {
+			$(".txt_2depth").css("display", "block");
+			$(".bg_2depth").css("display", "block");
+		}, function() {
+			$(".txt_2depth").css("display", "none");
+			$(".bg_2depth").css("display", "none");
+		});
+		$(".bg_2depth").hover(function() {
+			$(".txt_2depth").css("display", "block");
+			$(".bg_2depth").css("display", "block");
+		}, function() {
+			$(".txt_2depth").css("display", "none");
+			$(".bg_2depth").css("display", "none");
+		});
+		/*경로*/
+		$(".path_1depth01").hover(function() {
+			$(".ps01").css("display", "block");
+		}, function() {
+			$(".ps01").css("display", "none");
+		});
+		$(".path_1depth02").hover(function() {
+			$(".ps02").css("display", "block");
+		}, function() {
+			$(".ps02").css("display", "none");
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<!-- header-->
+		<%@include file = "../include/header.jsp" %>
+		<!-- header End-->
+
+		<!-- container -->
+		<div id="container">
+			<!-- visual-->
+			<div class="sub_visual sub04_01_bg">
+				<h2>
+					<img src="/sp04/resources/images/sub04/sub04_01_title.png"
+						alt="리조트/휴양소/행사">
+				</h2>
+			</div>
+
+			<div class="inner sub_inner">
+				<div>
+					<!--경로-->
+					<ul class="path_top">
+						<li><a href="/sp04/main/index.html"> <i class="icon_home"><img
+									src="/sp04/resources/images/sub01/btn_path_home.png"
+									alt="메인으로 가기 버튼"></i> Home
+						</a></li>
+						<li class="path_1depth01"><a href="#a" class="path_on"><span>About
+									협의회</span><i class="caret"></i></a>
+							<ul class="path_sub ps01">
+								<li><a href="/sp04/sub01/sub01_6.html">About 협의회</a></li>
+								<li><a href="/sp04/sub01/sub01_2.html">협의회 소식</a></li>
+								<li><a href="/sp04/sub02/sub02_1.html">고충처리</a></li>
+								<li><a href="/sp04/sub03/sub03_1.html">소통마당</a></li>
+							</ul></li>
+						<li class="path_1depth02"><a href="#a" class="path_on"><span>소통마당</span><i
+								class="caret"></i></a>
+							<ul class="path_sub ps02">
+								<li><a href="/sp04/sub03/sub03_1.html">삼건협의회가 간다</a></li>
+								<li><a href="/sp04/sub03/sub03_2.html">POLL</a></li>
+								<li><a href="/sp04/sub04/sub04_1.html">리조트/휴양소/행사</a></li>
+								<li><a href="/sp04/sub04/sub04_2.html"><span>통근버스</span></a></li>
+							</ul></li>
+					</ul>
+				</div>
+
+				<!--con_wrap(바뀌는 영역)-->
+				<div class="con_wrap">
+					<div class="sub02_tb_top">
+						<div class="search_area02">
+							<!--검색영역-->
+							<select class="sch_sel">
+								<option selected="selected">전체</option>
+								<option>제목</option>
+								<option>본문</option>
+							</select> <input type="search" class="input_srh02" id="sTitle">
+							<!--검색어 입력-->
+							<a href="#none"><img
+								src="/sp04/resources/images/common/btn_sch.png" alt="검색 버튼"
+								onclick="fn_SearchList()"></a>
+						</div>
+						<div class="bd-total fl mrl20 mrt10">
+							<!--totle 카운트-->
+							TOTAL<i class="split"></i><b class="color_blue">28</b>
+						</div>
+						<div class="btn_same fr">
+							<a href="/sp04/sub04/sub04_1_write.do" class="btn_sub03">Write</a>
+						</div>
+						<!--버튼-->
+					</div>
+
+					<!--게시판 영역-->
+					<div class="mrt10">
+						<div class="table">
+							<!--테이블-->
+							<table class="tb02">
+								<caption class="hide">게시판 리스트</caption>
+								<colgroup>
+									<col style="width: 7%;">
+									<col style="width: *%;">
+									<col style="width: 8%;">
+									<col style="width: 8%;">
+									<col style="width: 8%;">
+									<col style="width: 10%;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">No.</th>
+										<th scope="col">Title</th>
+										<th scope="col">Writer</th>
+										<th scope="col">Etc</th>
+										<th scope="col">View</th>
+										<th scope="col">Date</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+							<!--paging 시작 -->
+							<div style="text-align: center; margin-top: 20px;">
+								<div id="paging" class="paging list"
+									style="width: 100%; display: inline-block; margin: 0 auto"></div>
+							</div>
+							<!--paging 끝-->
+						</div>
+						<!--table-->
+					</div>
+				</div>
+				<!--con_wrap(바뀌는 영역) End-->
+			</div>
+			<!--inner End-->
+		</div>
+		<!-- container End-->
+		<!-- footer -->
+		<%@include file = "../include/footer.jsp" %>
+		<!-- footer End-->
+	</div>
+	<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. -->
+<mapper namespace="kr.co.sp04.dao.LawListDao"> 
+   <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+   <select id="listLaw"  parameterType="Map" resultType="java.util.HashMap"> 
+     
+WITH SEARCHLIST  AS (
+	select 
+		ROW_NUMBER() OVER( ORDER BY A.seq DESC  ) AS NO, 
+		A.seq, 
+		A.title, 
+		A.regdate, 
+		A.writer, 
+		A.status, 
+		A.cnt, 
+		A.Pseq, 
+		A.step 
+	from 
+		law A
+	where 1=1
+	<if test= "sTitle !=null  ">
+   	  	and A.title like '%' | |#{sTitle} || '%'
+	</if>
+	order by A.pseq desc, A.seq asc
+) 
+SELECT 
+	* 
+FROM SEARCHLIST 
+WHERE 1=1 
+AND SEARCHLIST.NO BETWEEN TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize}) - TO_NUMBER(#{sPageSize}) + 1 AND TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize})
+
+</select>
+
+<insert id="writeLaw"  parameterType="Map" >
+insert into law
+	(
+	seq,
+	title,
+	content,
+	cnt,
+	regid,
+	regdate,
+	modid,
+	moddate,
+	writer
+	)
+ values
+ 	(
+ 	(select nvl(max(seq),0)+1 from law ),
+ 	#{sTitle},
+ 	#{sContent},
+ 	0,
+ 	'id11',
+ 	sysdate,
+ 	'id11',
+ 	sysdate,
+ 	'sWriter'
+ 	)
+</insert>
+
+<select id="viewLaw"  parameterType="Map" resultType="java.util.HashMap">
+select seq,title,content,status,cnt,writer,regdate from law where seq = #{sSeq}
+</select>
+
+<delete id="deleteLaw"  parameterType="Map">
+delete from law where seq = #{sSeq}
+</delete>
+
+<update id="updateCnt" parameterType="Map">
+update law set 
+   	cnt = (select cnt+1 from law where seq = #{sSeq}) 
+where seq = #{sSeq}
+</update>		  
+		  
+<update id="editLaw" parameterType="Map">
+update law set Title = #{sTitle}, Content = #{sContent} ,regid = 'modid', regdate = sysdate where seq = #{sSeq}
+</update>
+
+<select id="selectTotal" parameterType="Map" resultType="int">
+select 
+	 count(*) totCnt 
+from
+	law A 
+where 1=1 
+</select>
+</mapper>

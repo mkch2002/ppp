@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*========================================
+[search]
+=========================================*/
+
+/*검색영역*/
+.sch_graybg {width: 100%; height: 80px; background-color: #eef0f7; text-align: center; margin-top: 20px;}
+.sch_graybg .sch_box {display: inline-block; overflow: hidden; margin-top: 20px;}
+.sch_graybg .input_srh02 {float: left; width: 440px; border: 1px solid #000; height: 38px;}
+.sch_graybg .sch_box img {float: left;}
+
+/*검색결과 타이틀*/
+.sch_result {margin-top: 26px; font-size: 18px; margin-bottom: 40px;}
+.sch_result strong {font-weight: 800; color: #4aafa0;}
+.sch_result span {font-weight: 800; color: #4aafa0;}
+/*검색결과 리스트*/
+.wrap_sch_list {margin-top: 30px;}
+.wrap_sch_list h3 {font-weight: 500;font-size: 26px; color: #111; padding: 4px;}
+.wrap_sch_list h3 em {font-size: 26px; color: #4aafa0; margin-left: 4px;}
+.wrap_sch_list ul {border-top: 2px solid #4aafa0;}
+.wrap_sch_list ul li {padding: 20px 10px; overflow: hidden; border-bottom: 1px solid #ddd;}
+.wrap_sch_list ul li a {float: left; font-size: 18px; width: 80%;}
+.wrap_sch_list ul li a:hover {text-decoration: underline;}
+.wrap_sch_list ul li span {float: right; font-size: 14px;}
+
+
+/*========================================
+[sitemap]
+=========================================*/
+.sub05_02_bg h2 {font-size: 30px !important;}
+.menu_group {float: left; width: 25%; border-left: 1px solid #eee; height: 170px; padding-left: 20px;}
+.menu_group h3 {margin-bottom: 10px; color: #fff; font-weight: 900;}
+.menu_group h3 span {font-size: 15px; display: inline-block; padding: 4px 16px; background-color: #4bc7e2; border-bottom: 0px solid #4478c0; border-radius: 20px;}
+.menu_group h3 span.bg_color01 {background-color:#507bc1;}
+.menu_group h3 span.bg_color02 {background-color:#75b1e3;}
+.menu_group h3 span.bg_color03 {background-color:#7fcba8;}
+.menu_group h3 span.bg_color04 {background-color:#6fced6;}
+.menu_group ul li a {width: 60%; font-size: 14px; padding: 4px 12px; border-radius: 16px; letter-spacing: -1px;}
+.menu_group ul li a:hover {background-color: #eee;}
+
+
+
+/*========================================
+gnb
+=========================================*/
+.border_bot {border-bottom: 1px solid #000;}
+.paging {padding-top: 10px;}
+
+/*========================================
+게시판
+=========================================*/
+table input {border: 1px solid #ddd;}
+.con_wrap .board_tit {color: #4478c0; display: inline-block; margin-bottom: 16px; font-size: 16px; font-weight: 600;}
+
+/*------------------------
+게시판 영역 Table > tb05
+------------------------*/
+.tb05 {text-align: center;}
+.tb05 tr th {position: relative; text-align: center; padding:10px 0; font-weight:400; font-size: 14px; border-top: 1px solid #4478c0; border-bottom: 1px solid #4478c0; background-color: #f7f9ff; color: #4478c0; font-weight: 600;}
+.tb05 tr th+th:before {content:''; position: absolute; top:50%; left:0; margin-top: -8px;height: 16px; border-left: 1px solid #ddd;}
+.tb05 tr:last-child td {border-bottom: 1px solid #999;}
+.tb05 tr td {border-bottom: 1px solid #e8e8e8; padding:10px 10px;}
+.tb05 tr td .num {padding:0 10px; width: 70px; height: 26px;}
+.tb05 tr td.txt {text-align: left;}
+
+/*------------------------
+게시판 영역 Table > tb06
+------------------------*/
+/*공통*/
+.tb06 tr:first-child {border-top: 1px solid #4478c0;}
+.tb06 tr:last-child {border-bottom: 1px solid #4478c0;}
+.tb06 tr {border-bottom: 1px solid #ddd;}
+.tb06 tr th {font-size: 14px; color: #000; text-align: center; font-weight: normal; background-color: #f7f9ff; border-right: 1px solid #4478c0; color: #4478c0; font-weight: 600;}
+.tb06 tr td {font-size: 14px; padding:12px 0px 12px 22px;}
+.tb06 tr td textarea {width:100%; border-color: #ddd;}
+.tb06 tr td input[type=text], .tb06 tr td input[type=file]  {width:100%; border-color: #ddd;}
+.tb06 tr td input[type=file] {background-color: #f5f5f5; padding: 0;}
+.file_smtxt {color: #999; font-size: 11px; margin: 3px 0;}
+.file_txt span {display: inline-block; margin-right: 10px; letter-spacing: -1px; margin-top: 14px;}
+.file_txt input[type=text] {height: 30px; padding: 0 10px;}
+.visual_order {width: 70px !important;}
+
+
+

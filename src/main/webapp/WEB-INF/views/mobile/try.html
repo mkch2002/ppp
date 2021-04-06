@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판 관리자 모드</title>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+	<table border="1px" id="member_table">
+		<tr>
+			<th>선택</th>
+			<th>NO</th>
+			<th>ID</th>
+			<th>이름</th>
+			<th>전화번호</th>
+			<th>이메일</th>
+			<th>ADDRESS</th>
+			<th>GENDER</th>
+			<th>비고</th>
+		</tr>
+		<tr data-id="id_11" data-name="민진홍11" data-phone="101010101_1"
+			data-email="wsdaq`@naver.com" data-address="qqqq" data-gender="11111">
+			<td><input type="checkbox" data-seq="0" data-id="0"></td>
+			<td>1</td>
+			<td><input type="text" value="id1"></td>
+			<td><input type="text" value="민진홍1"></td>
+			<td><input type="text" value="010-0000-0001"></td>
+			<td><input type="text" value="wdsa1@naver.com"></td>
+			<td><input type="text" value="address"></td>
+			<td><input type="text" value="male" class="c_gender"></td>
+			<td><input type="button" value="edtt" class="btn_edit"
+				data-id="ㅇㅇㅇㅇ"> <input type="button" value="delete"
+				class="btn_delete" data-name="민진홍"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>2</td>
+			<td><input type="text" value="id2"></td>
+			<td><input type="text" value="민진홍2"></td>
+			<td><input type="text" value="010-0000-0002"></td>
+			<td><input type="text" value="wdsa2@naver.com"></td>
+			<td><input type="text" value="address2"></td>
+			<td><input type="text" value="male2"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>3</td>
+			<td><input type="text" value="id3"></td>
+			<td><input type="text" value="민진홍3"></td>
+			<td><input type="text" value="010-0000-0003"></td>
+			<td><input type="text" value="wdsa3@naver.com"></td>
+			<td><input type="text" value="address3"></td>
+			<td><input type="text" value="male3"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>4</td>
+			<td><input type="text" value="id4"></td>
+			<td><input type="text" value="민진홍4"></td>
+			<td><input type="text" value="010-0000-0004"></td>
+			<td><input type="text" value="wdsa4@naver.com"></td>
+			<td><input type="text" value="address4"></td>
+			<td><input type="text" value="male4"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>5</td>
+			<td><input type="text" value="id5"></td>
+			<td><input type="text" value="민진홍5"></td>
+			<td><input type="text" value="010-0000-0005"></td>
+			<td><input type="text" value="wdsa5@naver.com"></td>
+			<td><input type="text" value="address5"></td>
+			<td><input type="text" value="male5"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>6</td>
+			<td><input type="text" value="id6"></td>
+			<td><input type="text" value="민진홍6"></td>
+			<td><input type="text" value="010-0000-0006"></td>
+			<td><input type="text" value="wdsa6@naver.com"></td>
+			<td><input type="text" value="address6"></td>
+			<td><input type="text" value="male6"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>7</td>
+			<td><input type="text" value="id7"></td>
+			<td><input type="text" value="민진홍7"></td>
+			<td><input type="text" value="010-0000-0007"></td>
+			<td><input type="text" value="wdsa7@naver.com"></td>
+			<td><input type="text" value="address7"></td>
+			<td><input type="text" value="male7"></td>
+			<td><input type="button" value="save" class="btn_save">
+			<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>8</td>
+			<td><input type="text" value="id8"></td>
+			<td><input type="text" value="민진홍8"></td>
+			<td><input type="text" value="010-0000-0008"></td>
+			<td><input type="text" value="wdsa8@naver.com"></td>
+			<td><input type="text" value="address8"></td>
+			<td><input type="text" value="male8"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>9</td>
+			<td><input type="text" value="id9"></td>
+			<td><input type="text" value="민진홍9"></td>
+			<td><input type="text" value="010-0000-0009"></td>
+			<td><input type="text" value="wdsa9@naver.com"></td>
+			<td><input type="text" value="address9"></td>
+			<td><input type="text" value="male9"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>10</td>
+			<td><input type="text" value="id10"></td>
+			<td><input type="text" value="민진홍10"></td>
+			<td><input type="text" value="010-0000-0010"></td>
+			<td><input type="text" value="wdsa10@naver.com"></td>
+			<td><input type="text" value="address10"></td>
+			<td><input type="text" value="male10"></td>
+			<td><input type="button" value="save" class="btn_save">
+				<input type="button" value="delete" class="btn_delete"></td>
+		</tr>
+	</table>
+	<script>
+		// 		$(document).ready(function() {
+		// 			$(document).on("click", ".btn_delete", function() {
+		// 				//var tmp_name = $(this).closest("tr").find("td").eq(2).find("input").eq(0).val(); 
+		// 				$(this).closest("tr").attr("data-name", "dkgk"); attr 앞에꺼에 뒤에꺼 대입
+		// 				//alert($(this).closest("tr").attr('data-id')); alert띄어주는거 뒤에꺼
+		// 			});
+		// 		});
+
+		
+		
+		
+		
+		$(document).ready(function() {
+			init();
+			
+			$(document).on("click", ".btn_save", function() {
+				alert($(this).attr("data-id"));
+			});
+		}); // 버튼 눌렀을때 속성값 나오게 하기
+
+		$(document).ready(function() {
+			$(document).on("click", ".btn_edit", function() {
+				var params = {
+						sId:$(this).attr("data-id"),
+						sName:$(this).attr("data-name"),
+						sPhone:$(this).attr("data-phone"),
+						sUrl:'/sp04/sub04/editJoin.do'
+				}
+			
+				fn_edit(params);
+			});
+		});
+
+		function fn_edit(params){
+	    	   $.ajax(
+	    	            {
+	    	                url : params.sUrl,
+	    	                data :params,       
+	    	                method : 'post',
+	    	                dataType : 'json',  
+	    	                success : function(response){
+	    	                  
+	    	                	if(response.result > 0){
+	    	                		alert("수정되었습니다.");
+	    	                        location.href="/sp04/sub04/sub04_1.do";
+	    	                	} else {
+	    	                		alert("수정되지 않았습니다.")
+	    	                	}
+	    	                    
+
+	    	                },
+	    	                error : function(xhr, status, error){
+	    	                    alert("실패");
+	    	                }
+	    	       		 });		
+		}
+		
+// 		$(document).ready(function() {
+// 			$(document).on("click", ".btn_delete", function() {
+// 				alert($(this).closest("tr").find("td").eq(0).find("input").eq(0).attr("data-seq"));
+// 			});
+// 		}); // 버튼 누르면 seq값이 나옴
+		
+		$(document).ready(function() {
+			$(document).on("click", ".c_gender", function() {
+				alert($(this).closest("tr").find("td").eq(0).find("input").eq(0).attr("data-seq"));
+			});
+		});
+		
+		
+
+		// 		$(document).ready(function() {
+		// 			$(document).on("click", ".btn_save", function() {
+		// 				var tmp_num = $(this).closest("tr").find("td").eq(0).text();
+		// 				var tmp_id = $(this).closest("tr").find("td").eq(1).find("input").eq(0).val();
+		// 				var tmp_name = $(this).closest("tr").find("td").eq(2).find("input").eq(0).val();
+		// 				var tmp_phone = $(this).closest("tr").find("td").eq(3).find("input").eq(0).val();
+		// 				var tmp_email = $(this).closest("tr").find("td").eq(4).find("input").eq(0).val();
+		// 				var tmp_address = $(this).closest("tr").find("td").eq(5).find("input").eq(0).val();
+		// 				var tmp_gender = $(this).closest("tr").find("td").eq(6).find("input").eq(0).val();
+
+		// 				$(this).closest("tr").find("td").eq(0).text(tmp_num+tmp_id+tmp_name+tmp_phone+tmp_email+tmp_address+tmp_gender);
+		// 			});
+		// 		}); // 묶어서 나오게 하기
+
+		// 		$(document).ready(function() {
+		// 			$(document).on("click", ".btn_delete", function() {
+		// 				var tmp_name = $(this).closest("tr").find("td").eq(2).find("input").eq(0).val();
+		// 				$(this).closest("tr").remove();
+		// 			});
+		// 		}); // 제거하기
+		
+		function init(){
+			
+			
+		}
+	</script>
+</body>
+</html>

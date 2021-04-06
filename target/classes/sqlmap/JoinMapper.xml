@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. -->
+<mapper namespace="kr.co.sp04.dao.JoinListDao"> 
+   <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 JoinVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+   <select id="listJoin"  parameterType="Map" resultType="java.util.HashMap"> 
+     
+WITH SEARCHLIST  AS (
+	select 
+		ROW_NUMBER() OVER( ORDER BY A.seq DESC  ) AS NO, 
+		A.seq, 
+		A.title, 
+		A.regdate, 
+		A.writer, 
+		A.cnt, 
+		A.Pseq, 
+		A.step 
+	from 
+		board A
+	where 1=1
+	<if test= "sTitle !=null  ">
+   	  	and A.title like '%' | |#{sTitle} || '%'
+	</if>
+	order by A.pseq desc, A.seq asc
+) 
+SELECT 
+	* 
+FROM SEARCHLIST 
+WHERE 1=1 
+AND SEARCHLIST.NO BETWEEN TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize}) - TO_NUMBER(#{sPageSize}) + 1 AND TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize})
+
+</select>
+
+<insert id="writeJoin"  parameterType="Map" >
+insert into board
+	(seq,pseq,title,content,cnt,regid,regdate,modid,moddate,step,writer)
+values
+	(
+	(select nvl(max(seq),0)+1 from board ),
+	(select nvl(max(seq),0)+1 from board ),
+	#{sTitle},
+	#{sContent},
+	0,
+	'id11',
+	sysdate,
+	'id11',
+	sysdate,
+	0,
+	'sWriter')
+</insert>
+
+<select id="viewJoin"  parameterType="Map" resultType="java.util.HashMap">
+select seq,title,content,cnt,writer,regdate from board where seq = #{sSeq}
+</select>
+
+<delete id="deleteJoin"  parameterType="Map">
+delete from board where seq = #{sSeq}
+</delete>
+
+<update id="updateCnt" parameterType="Map">
+update board set 
+   	cnt = (select cnt+1 from board where seq = #{sSeq}) 
+where seq = #{sSeq}
+</update>		  
+		  
+<update id="editJoin" parameterType="Map">
+update board set Title = #{sTitle}, Content = #{sContent} ,regid = 'modid', regdate = sysdate where seq = #{sSeq}
+</update>
+
+<select id="selectTotal" parameterType="Map" resultType="int">
+select 
+	 count(*) totCnt 
+from
+	board A 
+where 1=1 
+</select>
+</mapper>

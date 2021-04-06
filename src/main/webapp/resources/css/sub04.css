@@ -1,0 +1,27 @@
+@charset "utf-8";
+/*-----------------------------
+[POLL] sub03_2 
+------------------------------*/
+
+
+/*설문결과------------------------*/
+.poll_result .total_num {margin: 8px 0 24px 0; font-weight: 600; letter-spacing: -1px;}/*전체 참가자수*/
+.poll_result .total_num span {padding-left: 8px; color: #883a4f; font-weight: 600; font-size: 20px;}
+.poll_result ul li {margin-bottom: 10px;}/*선택질문*/
+.poll_result em {font-size: 15px; font-weight: 600; color: #1d2c6f;}
+
+.poll_result ul p {width: 100%; font-size: 14px; background-color: #f8f8f8; margin-top: 6px;}/*그래프*/
+.poll_result ul li .m_graph {width: 100%; height: 3px; margin-top: 6px;}
+.poll_result ul li .m_graph span {display: inline-block; height: 3px; background-color: #e34335; text-indent: -2600px;}/*공통*/
+.poll_result ul li:nth-child(1) .m_graph span {width: 40%;}/*퍼센트*/
+.poll_result ul li:nth-child(2) .m_graph span {width: 10%;}
+.poll_result ul li:nth-child(3) .m_graph span {width: 50%;}
+.poll_result ul li:nth-child(4) .m_graph span {width: 10%;}
+
+.poll_result ul li .count {text-align: right;}/*숫자 카운트*/
+.poll_result ul li .count span {font-size: 15px; font-weight: 600;}
+
+
+/*댭변이 3개 이상일때 혹은 2개 이상일 때 컨트롤*/
+.display1 {display: block;}
+.display2 {display: none;}

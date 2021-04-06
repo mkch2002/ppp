@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+	<title>제이쿼리 모바일</title>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+	.menuBg{
+		background-color: green;
+	}
+	
+	.menuColor{
+		color: white;
+	}	
+</style>
+</head>
+<body>
+
+<div class="menuTop">
+	<input type="button"  class="menu"  value="클릭" id="menu1" >
+	<input type="button"   class="menu" value="클릭" id="menu2" >
+	<input type="button"  class="menu"  value="클릭" id="menu3" >
+</div>
+
+<script>
+
+	var menu = $('.menu')
+	
+	for(var i=0, j=menu.length; i<j; i++){
+		menu[i].addEventListener("click", fn_click);
+	}
+	
+	function fn_click(){
+		for(var i=0,j=menu.length; i<j;i++){
+			menu[i].classList.remove("menuBg","menuColor");
+		}		
+		$(this).addClass("menuBg","menuColor");
+	}	
+</script>
+</body>
+</html>

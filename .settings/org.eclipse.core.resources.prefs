@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/main/java/kr/co/sp04/cmm/DBConnection.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/ComitteeListController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/CouncilListController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/HistoryListController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/JoinListController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/LawController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/NewsCommentController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/NewsController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/controller/VocListController.java=UTF-8
+encoding//src/main/java/kr/co/sp04/dao/impl/VocListDAOImpl.java=UTF-8
+encoding//src/main/java/kr/co/sp04/trycontroller/TryController.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/home.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/sub01/sub01_5_write.jsp=UTF-8

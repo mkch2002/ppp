@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. -->
+<mapper namespace="kr.co.sp04.dao.NewsListDao"> 
+   <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+   <select id="listNews"  parameterType="Map" resultType="java.util.HashMap"> 
+     
+WITH SEARCHLIST  AS (
+	select 
+		ROW_NUMBER() OVER( ORDER BY A.pseq ,A.seq DESC  ) AS NO, 
+		A.seq, 
+		A.title, 
+		A.regdate, 
+		A.bad, 
+		A.good, 
+		A.cnt, 
+		A.Pseq, 
+		A.step 
+	from 
+		News A
+	where 1=1
+	<if test= "sTitle !=null  ">
+   	  	and A.title like '%' | |#{sTitle} || '%'
+	</if>
+) 
+SELECT 
+	* 
+FROM SEARCHLIST 
+WHERE 1=1 
+AND SEARCHLIST.NO BETWEEN TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize}) - TO_NUMBER(#{sPageSize}) + 1 AND TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize})
+
+</select>
+
+<insert id="writeNews"  parameterType="Map" >
+insert into News
+	(
+	seq,
+	title,
+	content,
+	etc,
+	cnt,
+	regid,
+	regdate,
+	modid,
+	moddate
+	)
+ values
+ 	(
+ 	(select nvl(max(seq),0)+1 from news ),
+ 	#{sTitle},
+ 	#{sContent},
+ 	#{sEtc},
+ 	0,
+ 	'id11',
+ 	sysdate,
+ 	'id11',
+ 	sysdate
+ 	)
+</insert>
+
+<select id="viewNews"  parameterType="Map" resultType="java.util.HashMap">
+select seq,title,content,good,bad,cnt,nvl(etc,' ') etc from news where seq = #{sSeq}
+</select>
+
+<delete id="deleteNews"  parameterType="Map" >
+delete from News where seq = #{sSeq}
+</delete>
+
+<update id="updateCnt" parameterType="Map">
+update News set 
+   	cnt = (select cnt+1 from News where seq = #{sSeq}) 
+where seq = #{sSeq}
+</update>		  
+		  
+<update id="editNews" parameterType="Map">
+update News set Tqitle = #{sTitle}, Content = #{sContent} ,regid = 'modid', regdate = sysdate where seq = #{sSeq}
+</update>
+
+<select id="selectTotal" parameterType="Map" resultType="int">
+select 
+	 count(*) totCnt 
+from
+	News A 
+where 1=1 
+	<if test= "sTitle !=null  ">
+   	  	and A.title like '%' | |#{sTitle} || '%'
+	</if>
+	
+</select>
+
+  <select id="rlistNews"  parameterType="Map" resultType="java.util.HashMap"> 
+     
+WITH SEARCHLIST  AS (
+	select 
+		ROW_NUMBER() OVER( ORDER BY A.pseq ,A.seq DESC  ) AS NO, 
+		A.seq,
+		A.title, 
+		A.regdate, 
+		A.bad,
+		A.good,
+		A.cnt,
+		A.Pseq,
+		A.step
+	from 
+		News A
+	where 1=1
+	<if test= "sTitle !=null  ">
+   	  	and A.title like '%' | |#{sTitle} || '%'
+	</if>
+) 
+SELECT 
+	* 
+FROM SEARCHLIST 
+WHERE 1=1 
+AND SEARCHLIST.NO BETWEEN TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize}) - TO_NUMBER(#{sPageSize}) + 1 AND TO_NUMBER(#{sPageNo}) * TO_NUMBER(#{sPageSize})
+
+</select>
+
+</mapper>
