@@ -8,6 +8,7 @@
 =========================================*/
 .visual {width: 100%; height: 45notice_tit0px; position: relative;}
 
+
 /*visual [bx슬라이더]*/
 .visual .bxslider {position:absolute; z-index: 1}
 .visual .bxslider .visual_main01 {width: 100%; height: 366px; background: url(../images/main/main_vs_img01.png) center center no-repeat;}
